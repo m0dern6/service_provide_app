@@ -1,0 +1,40 @@
+{
+    "category": [
+        {
+            "cid": 1,
+            "Category Name": "Electronics",
+            "Services": [
+                {
+                    "sid": 1,
+                    "Service Name": "Mobile repair",
+                    "Description": "Mobile repair service",
+                    "Price": "1000"
+                },
+                {
+                    "sid": 2,
+                    "Service Name": "Laptop repair",
+                    "Description": "Laptop repair service",
+                    "Price": "2000"
+                }
+            ]
+        },
+        {
+            "cid": 2,
+            "Category Name": "Furniture",
+            "Services": [
+                {
+                    "sid": 3,
+                    "Service Name": "Dining repair",
+                    "Description": "Dining related repair service",
+                    "Price": "1000"
+                },
+                {
+                    "sid": 4,
+                    "Service Name": "Sofa repair",
+                    "Description": "Sofa related repair service",
+                    "Price": "2000"
+                }
+            ]
+        }
+    ]
+}

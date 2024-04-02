@@ -1,0 +1,24 @@
+{
+    "users": [
+        {
+            "uid": 1,
+            "Name": "Nabin Adhikari",
+            "Email": "nabin@gmail.com",
+            "Phone": "1234567890",
+            "Password": "password",
+            "Address": "123 Main Street, Anytown, CA 12345",
+            "Role": "Customer",
+            "Photo": "https://img.freepik.com/premium-vector/man-avatar-profile-picture-vector-illustration_268834-538.jpg"
+        },
+        {
+            "uid": 2,
+            "Name": "Nabina Adhikari",
+            "Email": "nabin1@gmail.com",
+            "Phone": "1234567899",
+            "Password": "passwor",
+            "Address": "123 Main Street, Anytown, CA 12345",
+            "Role": "Provider",
+            "Photo": "https://img.freepik.com/premium-vector/man-avatar-profile-picture-vector-illustration_268834-538.jpg"
+        }
+    ]
+}
