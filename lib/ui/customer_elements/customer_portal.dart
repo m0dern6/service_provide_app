@@ -1,7 +1,7 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
-import 'package:service_provide_app/Models/category_model.dart';
+import 'package:service_provide_app/models/category_model.dart';
 import 'package:service_provide_app/ui/customer_home_screen.dart';
 
 class CustomerPortal extends StatefulWidget {

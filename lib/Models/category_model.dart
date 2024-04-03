@@ -1,4 +1,4 @@
-import 'package:service_provide_app/Models/service_model.dart';
+import 'package:service_provide_app/models/service_model.dart';
 
 class CategoryModel {
   int cid;

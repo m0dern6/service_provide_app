@@ -1,7 +1,7 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
-import 'package:service_provide_app/Models/category_model.dart';
+import 'package:service_provide_app/models/category_model.dart';
 import 'package:service_provide_app/ui/customer_elements/customer_portal.dart';
 import 'package:service_provide_app/ui/customer_elements/customer_settings.dart';
 import 'package:service_provide_app/ui/customer_elements/services.dart';
