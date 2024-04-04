@@ -35,6 +35,186 @@
                     "Price": "2000"
                 }
             ]
+        },
+        {
+            "cid": 3,
+            "Category Name": "Appliances",
+            "Services": [
+                {
+                    "sid": 5,
+                    "Service Name": "Refrigerator repair",
+                    "Description": "Refrigerator repair service",
+                    "Price": "1500"
+                },
+                {
+                    "sid": 6,
+                    "Service Name": "Washing machine repair",
+                    "Description": "Washing machine repair service",
+                    "Price": "1200"
+                }
+            ]
+        },
+        {
+            "cid": 4,
+            "Category Name": "Automotive",
+            "Services": [
+                {
+                    "sid": 7,
+                    "Service Name": "Car detailing",
+                    "Description": "Car detailing service",
+                    "Price": "2500"
+                },
+                {
+                    "sid": 8,
+                    "Service Name": "Oil change",
+                    "Description": "Car oil change service",
+                    "Price": "500"
+                }
+            ]
+        },
+        {
+            "cid": 5,
+            "Category Name": "Plumbing",
+            "Services": [
+                {
+                    "sid": 9,
+                    "Service Name": "Pipe leak repair",
+                    "Description": "Pipe leak repair service",
+                    "Price": "800"
+                },
+                {
+                    "sid": 10,
+                    "Service Name": "Drain cleaning",
+                    "Description": "Drain cleaning service",
+                    "Price": "1000"
+                }
+            ]
+        },
+        {
+            "cid": 6,
+            "Category Name": "Electrical",
+            "Services": [
+                {
+                    "sid": 11,
+                    "Service Name": "Electrical wiring",
+                    "Description": "Electrical wiring service",
+                    "Price": "1200"
+                },
+                {
+                    "sid": 12,
+                    "Service Name": "Light fixture installation",
+                    "Description": "Light fixture installation service",
+                    "Price": "800"
+                }
+            ]
+        },
+        {
+            "cid": 7,
+            "Category Name": "Computer Services",
+            "Services": [
+                {
+                    "sid": 13,
+                    "Service Name": "Virus removal",
+                    "Description": "Computer virus removal service",
+                    "Price": "800"
+                },
+                {
+                    "sid": 14,
+                    "Service Name": "Data recovery",
+                    "Description": "Data recovery service",
+                    "Price": "1500"
+                }
+            ]
+        },
+        {
+            "cid": 8,
+            "Category Name": "Home Cleaning",
+            "Services": [
+                {
+                    "sid": 15,
+                    "Service Name": "Deep cleaning",
+                    "Description": "Deep home cleaning service",
+                    "Price": "2000"
+                },
+                {
+                    "sid": 16,
+                    "Service Name": "Carpet cleaning",
+                    "Description": "Carpet cleaning service",
+                    "Price": "1200"
+                }
+            ]
+        },
+        {
+            "cid": 9,
+            "Category Name": "Pest Control",
+            "Services": [
+                {
+                    "sid": 17,
+                    "Service Name": "Termite treatment",
+                    "Description": "Termite treatment service",
+                    "Price": "1500"
+                },
+                {
+                    "sid": 18,
+                    "Service Name": "Rodent extermination",
+                    "Description": "Rodent extermination service",
+                    "Price": "1000"
+                }
+            ]
+        },
+        {
+            "cid": 10,
+            "Category Name": "Landscaping",
+            "Services": [
+                {
+                    "sid": 19,
+                    "Service Name": "Lawn mowing",
+                    "Description": "Lawn mowing service",
+                    "Price": "800"
+                },
+                {
+                    "sid": 20,
+                    "Service Name": "Tree trimming",
+                    "Description": "Tree trimming service",
+                    "Price": "1200"
+                }
+            ]
+        },
+        {
+            "cid": 11,
+            "Category Name": "Event Planning",
+            "Services": [
+                {
+                    "sid": 21,
+                    "Service Name": "Wedding planning",
+                    "Description": "Wedding planning service",
+                    "Price": "5000"
+                },
+                {
+                    "sid": 22,
+                    "Service Name": "Corporate event planning",
+                    "Description": "Corporate event planning service",
+                    "Price": "3000"
+                }
+            ]
+        },
+        {
+            "cid": 12,
+            "Category Name": "Healthcare",
+            "Services": [
+                {
+                    "sid": 23,
+                    "Service Name": "Home nursing",
+                    "Description": "Home nursing service",
+                    "Price": "2000"
+                },
+                {
+                    "sid": 24,
+                    "Service Name": "Physical therapy",
+                    "Description": "Physical therapy service",
+                    "Price": "1500"
+                }
+            ]
         }
     ]
 }

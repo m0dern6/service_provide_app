@@ -1,13 +1,11 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
-import 'package:service_provide_app/models/category_model.dart';
-import 'package:service_provide_app/ui/customer_home_screen.dart';
+import 'package:provider/provider.dart';
+import 'package:service_provide_app/provider/api_provider.dart';
 
 class CustomerPortal extends StatefulWidget {
-  final List categories;
-
-  const CustomerPortal({super.key, required this.categories});
+  const CustomerPortal({super.key});
 
   @override
   State<CustomerPortal> createState() => _CustomerPortalState();
@@ -62,25 +60,37 @@ class _CustomerPortalState extends State<CustomerPortal> {
           ],
         ),
         Expanded(
-          child: FutureBuilder<List<CategoryModel>>(
-              future: fetchCategory(),
-              builder: (context, snapshot) {
-                if (snapshot.hasData) {
-                  final category = snapshot.data!;
+          child: Consumer<ApiProvider>(builder: (context, apiProvider, child) {
+            final categories = apiProvider.categories;
 
-                  return ListView.builder(
-                      itemCount: category.length,
-                      itemBuilder: (context, index) {
-                        return ListTile(
-                          title: Text(category[index].CategoryName),
-                        );
-                      });
-                } else if (snapshot.hasError) {
-                  return Center(child: Text('Error'));
-                } else {
-                  return Center(child: CircularProgressIndicator());
-                }
-              }),
+            return ListView.builder(
+                itemCount: categories.length,
+                itemBuilder: (context, index) {
+                  final categoryData = categories[index];
+                  return ListTile(
+                    title: Text(categoryData.CategoryName),
+                  );
+                });
+          }),
+          //   child: FutureBuilder<List<CategoryModel>>(
+          //       future: fetchCategory(),
+          //       builder: (context, snapshot) {
+          //         if (snapshot.hasData) {
+          //           final category = snapshot.data!;
+
+          //           return ListView.builder(
+          //               itemCount: category.length,
+          //               itemBuilder: (context, index) {
+          //                 return ListTile(
+          //                   title: Text(category[index].CategoryName),
+          //                 );
+          //               });
+          //         } else if (snapshot.hasError) {
+          //           return Center(child: Text('Error'));
+          //         } else {
+          //           return Center(child: CircularProgressIndicator());
+          //         }
+          //       }),
         ),
       ],
     ));
