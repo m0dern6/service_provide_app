@@ -25,72 +25,74 @@ class _CustomerPortalState extends State<CustomerPortal> {
     return Scaffold(
         body: Column(
       children: [
-        Stack(
-          children: [
-            CarouselSlider.builder(
-              itemCount: sliderImg.length,
-              itemBuilder: (context, index, realindex) {
-                final sliderimages = sliderImg[index];
-                return Container(
-                  child: Image.network(sliderimages),
-                );
-              },
-              options: CarouselOptions(
-                  autoPlay: true,
-                  height: 200,
-                  onPageChanged: (index, reason) {
-                    setState(() {
-                      _currentIndex = index;
-                    });
-                  }),
-            ),
-            Positioned(
-              bottom: 0,
-              right: 0,
-              left: 0,
-              child: DotsIndicator(
-                dotsCount: sliderImg.length,
-                position: _currentIndex.toDouble().toInt(),
-                decorator: DotsDecorator(
-                  color: Colors.grey,
-                  activeColor: Colors.blue,
-                ),
+        Padding(
+          padding: const EdgeInsets.fromLTRB(0, 10, 0, 10),
+          child: Stack(
+            children: [
+              CarouselSlider.builder(
+                itemCount: sliderImg.length,
+                itemBuilder: (context, index, realindex) {
+                  final sliderimages = sliderImg[index];
+                  return Container(
+                    child: Image.network(sliderimages),
+                  );
+                },
+                options: CarouselOptions(
+                    autoPlay: true,
+                    height: 200,
+                    onPageChanged: (index, reason) {
+                      setState(() {
+                        _currentIndex = index;
+                      });
+                    }),
               ),
-            )
-          ],
+              Positioned(
+                bottom: 0,
+                right: 0,
+                left: 0,
+                child: DotsIndicator(
+                  dotsCount: sliderImg.length,
+                  position: _currentIndex.toDouble().toInt(),
+                  decorator: DotsDecorator(
+                    color: Colors.grey,
+                    activeColor: Colors.blue,
+                  ),
+                ),
+              )
+            ],
+          ),
         ),
         Expanded(
           child: Consumer<ApiProvider>(builder: (context, apiProvider, child) {
             final categories = apiProvider.categories;
-
-            return ListView.builder(
-                itemCount: categories.length,
-                itemBuilder: (context, index) {
-                  final categoryData = categories[index];
-                  return ListTile(
-                    title: Text(categoryData.CategoryName),
-                  );
-                });
+            return Padding(
+              padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
+              child: GridView.builder(
+                  itemCount: categories.length,
+                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 2, crossAxisSpacing: 10),
+                  itemBuilder: (context, index) {
+                    final categoryData = categories[index];
+                    return Expanded(
+                        child: Column(
+                      children: [
+                        Container(
+                          child: Image.network(categoryData.CategoryImage),
+                        ),
+                        Text(categoryData.CategoryName),
+                      ],
+                    ));
+                  }),
+            );
+            // return ListView.builder(
+            //     itemCount: categories.length,
+            //     itemBuilder: (context, index) {
+            //       final categoryData = categories[index];
+            //       return ListTile(
+            //         title: Text(categoryData.CategoryName),
+            //       );
+            //     });
           }),
-          //   child: FutureBuilder<List<CategoryModel>>(
-          //       future: fetchCategory(),
-          //       builder: (context, snapshot) {
-          //         if (snapshot.hasData) {
-          //           final category = snapshot.data!;
-
-          //           return ListView.builder(
-          //               itemCount: category.length,
-          //               itemBuilder: (context, index) {
-          //                 return ListTile(
-          //                   title: Text(category[index].CategoryName),
-          //                 );
-          //               });
-          //         } else if (snapshot.hasError) {
-          //           return Center(child: Text('Error'));
-          //         } else {
-          //           return Center(child: CircularProgressIndicator());
-          //         }
-          //       }),
         ),
       ],
     ));

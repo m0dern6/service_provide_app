@@ -1,7 +1,4 @@
-import 'dart:convert';
-
 import 'package:flutter/material.dart';
-
 import 'package:service_provide_app/ui/customer_elements/customer_portal.dart';
 import 'package:service_provide_app/ui/customer_elements/customer_settings.dart';
 import 'package:service_provide_app/ui/customer_elements/services.dart';
@@ -21,20 +18,25 @@ class _CustomerHomeScreenState extends State<CustomerHomeScreen> {
     late Widget _currentPage;
     switch (_currentIndex) {
       case 0:
-        _currentPage = CustomerPortal();
+        _currentPage = const CustomerPortal();
         break;
       case 1:
-        _currentPage = Services();
+        _currentPage = const Services();
         break;
       case 2:
-        _currentPage = CustomerSettingScreen();
+        _currentPage = const CustomerSettingScreen();
     }
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Theme.of(context).primaryColor,
         automaticallyImplyLeading: false,
-        title: Text('Service Pro'),
+        title: const Text(
+          'Service Pro',
+          style: TextStyle(color: Colors.white),
+        ),
       ),
       bottomNavigationBar: BottomNavigationBar(
+        backgroundColor: Theme.of(context).primaryColor,
         items: const [
           BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
           BottomNavigationBarItem(
@@ -42,6 +44,8 @@ class _CustomerHomeScreenState extends State<CustomerHomeScreen> {
           BottomNavigationBarItem(
               icon: Icon(Icons.bookmark_border), label: 'Orders'),
         ],
+        unselectedItemColor: Colors.orangeAccent,
+        selectedItemColor: Colors.white,
         currentIndex: _currentIndex,
         onTap: (index) {
           setState(() {

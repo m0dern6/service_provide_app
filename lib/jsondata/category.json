@@ -3,6 +3,7 @@
         {
             "cid": 1,
             "Category Name": "Electronics",
+            "Category Image": "https://images.unsplash.com/photo-1594026112284-02bb6f3352fe?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjN8fGZ1cm5pdHVyZXxlbnwwfHwwfHx8MA%3D%3D",
             "Services": [
                 {
                     "sid": 1,
@@ -21,6 +22,7 @@
         {
             "cid": 2,
             "Category Name": "Furniture",
+            "Category Image": "https://images.unsplash.com/photo-1524758631624-e2822e304c36?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8RnVybml0dXJlfGVufDB8fDB8fHww",
             "Services": [
                 {
                     "sid": 3,
@@ -39,6 +41,7 @@
         {
             "cid": 3,
             "Category Name": "Appliances",
+            "Category Image": "https://images.unsplash.com/photo-1601760562234-9814eea6663a?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8QXBwbGlhbmNlc3xlbnwwfHwwfHx8MA%3D%3D",
             "Services": [
                 {
                     "sid": 5,
@@ -57,6 +60,7 @@
         {
             "cid": 4,
             "Category Name": "Automotive",
+            "Category Image": "https://images.unsplash.com/photo-1589320011103-48e428abcbae?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8QXV0b21vdGl2ZXxlbnwwfHwwfHx8MA%3D%3D",
             "Services": [
                 {
                     "sid": 7,
@@ -75,6 +79,7 @@
         {
             "cid": 5,
             "Category Name": "Plumbing",
+            "Category Image": "https://images.unsplash.com/photo-1608283833336-5fb6f919e5ea?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTl8fFBsdW1iaW5nfGVufDB8fDB8fHww",
             "Services": [
                 {
                     "sid": 9,
@@ -93,6 +98,7 @@
         {
             "cid": 6,
             "Category Name": "Electrical",
+            "Category Image": "https://plus.unsplash.com/premium_photo-1674331357798-eeb34144adce?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8RWxlY3RyaWNhbHxlbnwwfHwwfHx8MA%3D%3D",
             "Services": [
                 {
                     "sid": 11,
@@ -111,6 +117,7 @@
         {
             "cid": 7,
             "Category Name": "Computer Services",
+            "Category Image": "https://plus.unsplash.com/premium_photo-1664301923554-fa1023546fd8?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8Q29tcHV0ZXIlMjBTZXJ2aWNlc3xlbnwwfHwwfHx8MA%3D%3D",
             "Services": [
                 {
                     "sid": 13,
@@ -129,6 +136,7 @@
         {
             "cid": 8,
             "Category Name": "Home Cleaning",
+            "Category Image": "https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8SG9tZSUyMENsZWFuaW5nfGVufDB8fDB8fHww",
             "Services": [
                 {
                     "sid": 15,
@@ -147,6 +155,7 @@
         {
             "cid": 9,
             "Category Name": "Pest Control",
+            "Category Image": "https://plus.unsplash.com/premium_photo-1682126104327-ef7d5f260cf7?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8UGVzdCUyMENvbnRyb2x8ZW58MHx8MHx8fDA%3D",
             "Services": [
                 {
                     "sid": 17,
@@ -165,6 +174,7 @@
         {
             "cid": 10,
             "Category Name": "Landscaping",
+            "Category Image": "https://images.unsplash.com/photo-1458245201577-fc8a130b8829?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8TGFuZHNjYXBpbmd8ZW58MHx8MHx8fDA%3D",
             "Services": [
                 {
                     "sid": 19,
@@ -183,6 +193,7 @@
         {
             "cid": 11,
             "Category Name": "Event Planning",
+            "Category Image": "https://plus.unsplash.com/premium_photo-1661573774331-5df65d7fd43e?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8RXZlbnQlMjBQbGFubmluZ3xlbnwwfHwwfHx8MA%3D%3D",
             "Services": [
                 {
                     "sid": 21,
@@ -201,6 +212,7 @@
         {
             "cid": 12,
             "Category Name": "Healthcare",
+            "Category Image": "https://images.unsplash.com/photo-1505751172876-fa1923c5c528?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8aGVhbHRoJTIwY2FyZXxlbnwwfHwwfHx8MA%3D%3D",
             "Services": [
                 {
                     "sid": 23,
