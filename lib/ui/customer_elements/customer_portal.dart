@@ -1,11 +1,13 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:provider/provider.dart';
 import 'package:service_provide_app/provider/api_provider.dart';
 
 class CustomerPortal extends StatefulWidget {
-  const CustomerPortal({super.key});
+  final Color textColor;
+  const CustomerPortal({super.key, this.textColor = Colors.black});
 
   @override
   State<CustomerPortal> createState() => _CustomerPortalState();
@@ -22,79 +24,103 @@ class _CustomerPortalState extends State<CustomerPortal> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        body: Column(
-      children: [
-        Padding(
-          padding: const EdgeInsets.fromLTRB(0, 10, 0, 10),
-          child: Stack(
-            children: [
-              CarouselSlider.builder(
-                itemCount: sliderImg.length,
-                itemBuilder: (context, index, realindex) {
-                  final sliderimages = sliderImg[index];
-                  return Container(
-                    child: Image.network(sliderimages),
-                  );
-                },
-                options: CarouselOptions(
-                    autoPlay: true,
-                    height: 200,
-                    onPageChanged: (index, reason) {
-                      setState(() {
-                        _currentIndex = index;
-                      });
-                    }),
-              ),
-              Positioned(
-                bottom: 0,
-                right: 0,
-                left: 0,
-                child: DotsIndicator(
-                  dotsCount: sliderImg.length,
-                  position: _currentIndex.toDouble().toInt(),
-                  decorator: DotsDecorator(
-                    color: Colors.grey,
-                    activeColor: Colors.blue,
+    return Container(
+      margin: const EdgeInsets.only(left: 10, right: 10),
+      child: SingleChildScrollView(
+        child: Column(
+          children: [
+            Padding(
+              padding: const EdgeInsets.fromLTRB(0, 10, 0, 10),
+              child: Stack(
+                children: [
+                  CarouselSlider.builder(
+                    itemCount: sliderImg.length,
+                    itemBuilder: (context, index, realindex) {
+                      final sliderimages = sliderImg[index];
+                      return Expanded(
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 5),
+                          child: ClipRRect(
+                              borderRadius: BorderRadius.circular(10),
+                              child: Image.network(sliderimages)),
+                        ),
+                      );
+                    },
+                    options: CarouselOptions(
+                        autoPlay: true,
+                        height: 200,
+                        onPageChanged: (index, reason) {
+                          setState(() {
+                            _currentIndex = index;
+                          });
+                        }),
                   ),
-                ),
-              )
-            ],
-          ),
-        ),
-        Expanded(
-          child: Consumer<ApiProvider>(builder: (context, apiProvider, child) {
-            final categories = apiProvider.categories;
-            return Padding(
-              padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
-              child: GridView.builder(
+                  Positioned(
+                    bottom: 0,
+                    right: 0,
+                    left: 0,
+                    child: DotsIndicator(
+                      dotsCount: sliderImg.length,
+                      position: _currentIndex.toDouble().toInt(),
+                      decorator: const DotsDecorator(
+                        color: Colors.grey,
+                        activeColor: Colors.blue,
+                      ),
+                    ),
+                  )
+                ],
+              ),
+            ),
+            Container(
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(5),
+                color: Theme.of(context).primaryColor,
+              ),
+              child: const Align(
+                  alignment: Alignment.centerLeft,
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Text(
+                      'Categories',
+                      style: TextStyle(fontSize: 20, color: Colors.white),
+                    ),
+                  )),
+            ),
+            const SizedBox(height: 10),
+            Consumer<ApiProvider>(builder: (context, apiProvider, child) {
+              final categories = apiProvider.categories;
+              return GridView.builder(
+                  shrinkWrap: true,
+                  physics: const NeverScrollableScrollPhysics(),
                   itemCount: categories.length,
-                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: 2, crossAxisSpacing: 10),
+                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 2,
+                    crossAxisSpacing: 5,
+                  ),
                   itemBuilder: (context, index) {
                     final categoryData = categories[index];
-                    return Expanded(
-                        child: Column(
-                      children: [
-                        Container(
-                          child: Image.network(categoryData.CategoryImage),
-                        ),
-                        Text(categoryData.CategoryName),
-                      ],
-                    ));
-                  }),
-            );
-            // return ListView.builder(
-            //     itemCount: categories.length,
-            //     itemBuilder: (context, index) {
-            //       final categoryData = categories[index];
-            //       return ListTile(
-            //         title: Text(categoryData.CategoryName),
-            //       );
-            //     });
-          }),
+                    return GestureDetector(
+                      onTap: () {},
+                      child: Column(
+                        children: [
+                          ClipRRect(
+                              borderRadius: BorderRadius.circular(5),
+                              child: Image.network(categoryData.CategoryImage)),
+                          Text(
+                            categoryData.CategoryName,
+                            style: TextStyle(
+                                color: widget.textColor,
+                                fontWeight: FontWeight.bold,
+                                fontSize: 16),
+                          ),
+                        ],
+                      ),
+                    );
+                  });
+            }),
+          ],
         ),
-      ],
-    ));
+      ),
+    );
   }
 }

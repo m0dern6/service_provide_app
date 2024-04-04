@@ -36,6 +36,7 @@ class _MyAppState extends State<MyApp> {
         'login': (context) => const LoginScreen(),
         'homeCustomer': (context) => const CustomerHomeScreen(),
         'homeProvider': (context) => const ProviderHomeScreen(),
+
         // '/services': (context) => const ServiceScreen(),
         // '/orders': (context) => const OrderScreen(),
       },

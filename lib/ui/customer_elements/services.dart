@@ -3,30 +3,33 @@ import 'package:provider/provider.dart';
 import 'package:service_provide_app/provider/api_provider.dart';
 
 class Services extends StatefulWidget {
-  const Services({super.key});
+  final Color textColor;
+  const Services({Key? key, this.textColor = Colors.black});
 
   @override
   State<Services> createState() => _ServicesState();
 }
 
 class _ServicesState extends State<Services> {
+  Color textColor = Colors.white;
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Consumer<ApiProvider>(builder: (context, apiProvider, child) {
-        final services = apiProvider.categories
-            .expand((category) => category.Services)
-            .toList();
-        return ListView.builder(
-            itemCount: services.length,
-            itemBuilder: (context, index) {
-              final serviceData = services[index];
+    return Consumer<ApiProvider>(builder: (context, apiProvider, child) {
+      final services = apiProvider.categories
+          .expand((category) => category.Services)
+          .toList();
+      return ListView.builder(
+          itemCount: services.length,
+          itemBuilder: (context, index) {
+            final serviceData = services[index];
 
-              return ListTile(
-                title: Text(serviceData.ServiceName),
-              );
-            });
-      }),
-    );
+            return ListTile(
+              title: Text(
+                serviceData.ServiceName,
+                style: TextStyle(color: widget.textColor),
+              ),
+            );
+          });
+    });
   }
 }

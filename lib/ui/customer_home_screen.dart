@@ -12,22 +12,37 @@ class CustomerHomeScreen extends StatefulWidget {
 
 class _CustomerHomeScreenState extends State<CustomerHomeScreen> {
   int _currentIndex = 0;
+  Color _bodyColor = Colors.white;
+  Color _textColor = Colors.black;
 
   @override
   Widget build(BuildContext context) {
     late Widget _currentPage;
     switch (_currentIndex) {
       case 0:
-        _currentPage = const CustomerPortal();
+        _currentPage = CustomerPortal(textColor: _textColor);
         break;
       case 1:
-        _currentPage = const Services();
+        _currentPage = Services(textColor: _textColor);
         break;
       case 2:
         _currentPage = const CustomerSettingScreen();
     }
     return Scaffold(
       appBar: AppBar(
+        actions: [
+          IconButton(
+            onPressed: () {
+              setState(() {
+                _bodyColor =
+                    _bodyColor == Colors.white ? Colors.black : Colors.white;
+                _textColor =
+                    _textColor == Colors.black ? Colors.white : Colors.black;
+              });
+            },
+            icon: Icon(Icons.brightness_2),
+          ),
+        ],
         backgroundColor: Theme.of(context).primaryColor,
         automaticallyImplyLeading: false,
         title: const Text(
@@ -53,7 +68,7 @@ class _CustomerHomeScreenState extends State<CustomerHomeScreen> {
           });
         },
       ),
-      body: _currentPage,
+      body: Container(color: _bodyColor, child: _currentPage),
     );
   }
 }
