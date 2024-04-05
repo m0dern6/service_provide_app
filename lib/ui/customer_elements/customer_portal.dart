@@ -3,6 +3,7 @@ import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:provider/provider.dart';
+import 'package:service_provide_app/models/category_model.dart';
 import 'package:service_provide_app/provider/api_provider.dart';
 
 class CustomerPortal extends StatefulWidget {
@@ -56,7 +57,7 @@ class _CustomerPortalState extends State<CustomerPortal> {
                         }),
                   ),
                   Positioned(
-                    bottom: 0,
+                    bottom: 5,
                     right: 0,
                     left: 0,
                     child: DotsIndicator(
@@ -100,7 +101,14 @@ class _CustomerPortalState extends State<CustomerPortal> {
                   itemBuilder: (context, index) {
                     final categoryData = categories[index];
                     return GestureDetector(
-                      onTap: () {},
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => CategoryService(
+                                      categoryData: categoryData,
+                                    )));
+                      },
                       child: Column(
                         children: [
                           ClipRRect(
@@ -121,6 +129,34 @@ class _CustomerPortalState extends State<CustomerPortal> {
           ],
         ),
       ),
+    );
+  }
+}
+
+class CategoryService extends StatefulWidget {
+  final CategoryModel categoryData;
+  const CategoryService({super.key, required this.categoryData});
+
+  @override
+  State<CategoryService> createState() => _CategoryServiceState();
+}
+
+class _CategoryServiceState extends State<CategoryService> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(widget.categoryData.CategoryName),
+      ),
+      body: ListView.builder(
+          itemCount: widget.categoryData.Services.length,
+          itemBuilder: (context, index) {
+            final serviceData = widget.categoryData.Services[index];
+            return ListTile(
+              title: Text(serviceData.ServiceName),
+              trailing: Text('Rs ${serviceData.Price}'),
+            );
+          }),
     );
   }
 }

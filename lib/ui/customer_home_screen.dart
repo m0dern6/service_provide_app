@@ -14,6 +14,8 @@ class _CustomerHomeScreenState extends State<CustomerHomeScreen> {
   int _currentIndex = 0;
   Color _bodyColor = Colors.white;
   Color _textColor = Colors.black;
+  Color _unselectedIconColor = Colors.orangeAccent;
+  Color _selectedIconColor = Colors.white;
 
   @override
   Widget build(BuildContext context) {
@@ -59,8 +61,8 @@ class _CustomerHomeScreenState extends State<CustomerHomeScreen> {
           BottomNavigationBarItem(
               icon: Icon(Icons.bookmark_border), label: 'Orders'),
         ],
-        unselectedItemColor: Colors.orangeAccent,
-        selectedItemColor: Colors.white,
+        unselectedItemColor: _selectedIconColor,
+        selectedItemColor: _unselectedIconColor,
         currentIndex: _currentIndex,
         onTap: (index) {
           setState(() {
