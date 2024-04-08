@@ -5,8 +5,8 @@ import 'package:service_provide_app/models/category_model.dart';
 import 'package:service_provide_app/models/user_model.dart';
 
 class ApiService {
-  static const baseUrl1 = "http://192.168.1.64:3001/users";
-  static const baseUrl2 = "http://192.168.1.64:3002/category";
+  static const baseUrl1 = "http://192.168.1.69:3001/users";
+  static const baseUrl2 = "http://192.168.1.69:3002/category";
 
   Future<List<UserModel>> fetchUser() async {
     final response = await http.get(Uri.parse(baseUrl1));

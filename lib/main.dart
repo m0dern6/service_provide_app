@@ -2,12 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:service_provide_app/login_signup/login_screen.dart';
 import 'package:service_provide_app/provider/api_provider.dart';
-import 'package:service_provide_app/splash_screen/splash_screen.dart';
-import 'package:service_provide_app/ui/customer_elements/customer_portal.dart';
 import 'package:service_provide_app/ui/customer_home_screen.dart';
 import 'package:service_provide_app/ui/provider_home_screen.dart';
 
 void main() {
+  Future.delayed(const Duration(seconds: 2));
   runApp(MultiProvider(
     providers: [
       ChangeNotifierProvider(create: (_) => ApiProvider()),
@@ -33,7 +32,7 @@ class _MyAppState extends State<MyApp> {
       ),
       debugShowCheckedModeBanner: false,
       routes: {
-        '/': (context) => const SplashScreen(),
+        '/': (context) => const LoginScreen(),
         'login': (context) => const LoginScreen(),
         'homeCustomer': (context) => const CustomerHomeScreen(),
         'homeProvider': (context) => const ProviderHomeScreen(),
