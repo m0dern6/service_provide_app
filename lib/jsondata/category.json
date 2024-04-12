@@ -1,0 +1,232 @@
+{
+    "category": [
+        {
+            "cid": 1,
+            "Category Name": "Electronics",
+            "Category Image": "https://images.unsplash.com/photo-1594026112284-02bb6f3352fe?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjN8fGZ1cm5pdHVyZXxlbnwwfHwwfHx8MA%3D%3D",
+            "Services": [
+                {
+                    "sid": 1,
+                    "Service Name": "Mobile repair",
+                    "Description": "Mobile repair service",
+                    "Price": "1000"
+                },
+                {
+                    "sid": 2,
+                    "Service Name": "Laptop repair",
+                    "Description": "Laptop repair service",
+                    "Price": "2000"
+                }
+            ]
+        },
+        {
+            "cid": 2,
+            "Category Name": "Furniture",
+            "Category Image": "https://images.unsplash.com/photo-1524758631624-e2822e304c36?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8RnVybml0dXJlfGVufDB8fDB8fHww",
+            "Services": [
+                {
+                    "sid": 3,
+                    "Service Name": "Dining repair",
+                    "Description": "Dining related repair service",
+                    "Price": "1000"
+                },
+                {
+                    "sid": 4,
+                    "Service Name": "Sofa repair",
+                    "Description": "Sofa related repair service",
+                    "Price": "2000"
+                }
+            ]
+        },
+        {
+            "cid": 3,
+            "Category Name": "Appliances",
+            "Category Image": "https://images.unsplash.com/photo-1601760562234-9814eea6663a?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8QXBwbGlhbmNlc3xlbnwwfHwwfHx8MA%3D%3D",
+            "Services": [
+                {
+                    "sid": 5,
+                    "Service Name": "Refrigerator repair",
+                    "Description": "Refrigerator repair service",
+                    "Price": "1500"
+                },
+                {
+                    "sid": 6,
+                    "Service Name": "Washing machine repair",
+                    "Description": "Washing machine repair service",
+                    "Price": "1200"
+                }
+            ]
+        },
+        {
+            "cid": 4,
+            "Category Name": "Automotive",
+            "Category Image": "https://images.unsplash.com/photo-1589320011103-48e428abcbae?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8QXV0b21vdGl2ZXxlbnwwfHwwfHx8MA%3D%3D",
+            "Services": [
+                {
+                    "sid": 7,
+                    "Service Name": "Car detailing",
+                    "Description": "Car detailing service",
+                    "Price": "2500"
+                },
+                {
+                    "sid": 8,
+                    "Service Name": "Oil change",
+                    "Description": "Car oil change service",
+                    "Price": "500"
+                }
+            ]
+        },
+        {
+            "cid": 5,
+            "Category Name": "Plumbing",
+            "Category Image": "https://images.unsplash.com/photo-1608283833336-5fb6f919e5ea?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTl8fFBsdW1iaW5nfGVufDB8fDB8fHww",
+            "Services": [
+                {
+                    "sid": 9,
+                    "Service Name": "Pipe leak repair",
+                    "Description": "Pipe leak repair service",
+                    "Price": "800"
+                },
+                {
+                    "sid": 10,
+                    "Service Name": "Drain cleaning",
+                    "Description": "Drain cleaning service",
+                    "Price": "1000"
+                }
+            ]
+        },
+        {
+            "cid": 6,
+            "Category Name": "Electrical",
+            "Category Image": "https://plus.unsplash.com/premium_photo-1674331357798-eeb34144adce?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8RWxlY3RyaWNhbHxlbnwwfHwwfHx8MA%3D%3D",
+            "Services": [
+                {
+                    "sid": 11,
+                    "Service Name": "Electrical wiring",
+                    "Description": "Electrical wiring service",
+                    "Price": "1200"
+                },
+                {
+                    "sid": 12,
+                    "Service Name": "Light fixture installation",
+                    "Description": "Light fixture installation service",
+                    "Price": "800"
+                }
+            ]
+        },
+        {
+            "cid": 7,
+            "Category Name": "Computer Services",
+            "Category Image": "https://plus.unsplash.com/premium_photo-1664301923554-fa1023546fd8?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8Q29tcHV0ZXIlMjBTZXJ2aWNlc3xlbnwwfHwwfHx8MA%3D%3D",
+            "Services": [
+                {
+                    "sid": 13,
+                    "Service Name": "Virus removal",
+                    "Description": "Computer virus removal service",
+                    "Price": "800"
+                },
+                {
+                    "sid": 14,
+                    "Service Name": "Data recovery",
+                    "Description": "Data recovery service",
+                    "Price": "1500"
+                }
+            ]
+        },
+        {
+            "cid": 8,
+            "Category Name": "Home Cleaning",
+            "Category Image": "https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8SG9tZSUyMENsZWFuaW5nfGVufDB8fDB8fHww",
+            "Services": [
+                {
+                    "sid": 15,
+                    "Service Name": "Deep cleaning",
+                    "Description": "Deep home cleaning service",
+                    "Price": "2000"
+                },
+                {
+                    "sid": 16,
+                    "Service Name": "Carpet cleaning",
+                    "Description": "Carpet cleaning service",
+                    "Price": "1200"
+                }
+            ]
+        },
+        {
+            "cid": 9,
+            "Category Name": "Pest Control",
+            "Category Image": "https://plus.unsplash.com/premium_photo-1682126104327-ef7d5f260cf7?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8UGVzdCUyMENvbnRyb2x8ZW58MHx8MHx8fDA%3D",
+            "Services": [
+                {
+                    "sid": 17,
+                    "Service Name": "Termite treatment",
+                    "Description": "Termite treatment service",
+                    "Price": "1500"
+                },
+                {
+                    "sid": 18,
+                    "Service Name": "Rodent extermination",
+                    "Description": "Rodent extermination service",
+                    "Price": "1000"
+                }
+            ]
+        },
+        {
+            "cid": 10,
+            "Category Name": "Landscaping",
+            "Category Image": "https://images.unsplash.com/photo-1458245201577-fc8a130b8829?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8TGFuZHNjYXBpbmd8ZW58MHx8MHx8fDA%3D",
+            "Services": [
+                {
+                    "sid": 19,
+                    "Service Name": "Lawn mowing",
+                    "Description": "Lawn mowing service",
+                    "Price": "800"
+                },
+                {
+                    "sid": 20,
+                    "Service Name": "Tree trimming",
+                    "Description": "Tree trimming service",
+                    "Price": "1200"
+                }
+            ]
+        },
+        {
+            "cid": 11,
+            "Category Name": "Event Planning",
+            "Category Image": "https://plus.unsplash.com/premium_photo-1661573774331-5df65d7fd43e?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8RXZlbnQlMjBQbGFubmluZ3xlbnwwfHwwfHx8MA%3D%3D",
+            "Services": [
+                {
+                    "sid": 21,
+                    "Service Name": "Wedding planning",
+                    "Description": "Wedding planning service",
+                    "Price": "5000"
+                },
+                {
+                    "sid": 22,
+                    "Service Name": "Corporate event planning",
+                    "Description": "Corporate event planning service",
+                    "Price": "3000"
+                }
+            ]
+        },
+        {
+            "cid": 12,
+            "Category Name": "Healthcare",
+            "Category Image": "https://images.unsplash.com/photo-1505751172876-fa1923c5c528?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8aGVhbHRoJTIwY2FyZXxlbnwwfHwwfHx8MA%3D%3D",
+            "Services": [
+                {
+                    "sid": 23,
+                    "Service Name": "Home nursing",
+                    "Description": "Home nursing service",
+                    "Price": "2000"
+                },
+                {
+                    "sid": 24,
+                    "Service Name": "Physical therapy",
+                    "Description": "Physical therapy service",
+                    "Price": "1500"
+                }
+            ]
+        }
+    ]
+}
