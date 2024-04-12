@@ -48,6 +48,7 @@ class _CustomerPortalState extends State<CustomerPortal> {
                       );
                     },
                     options: CarouselOptions(
+                        viewportFraction: 0.7,
                         autoPlay: true,
                         height: 200,
                         onPageChanged: (index, reason) {
@@ -110,6 +111,7 @@ class _CustomerPortalState extends State<CustomerPortal> {
                                     )));
                       },
                       child: Column(
+                        mainAxisSize: MainAxisSize.min,
                         children: [
                           ClipRRect(
                               borderRadius: BorderRadius.circular(5),

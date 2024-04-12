@@ -29,6 +29,9 @@ class _CustomerHomeScreenState extends State<CustomerHomeScreen> {
         break;
       case 2:
         _currentPage = const CustomerSettingScreen();
+        break;
+      case 3:
+        _currentPage = const CustomerSettingScreen();
     }
     return Scaffold(
       appBar: AppBar(
@@ -53,13 +56,15 @@ class _CustomerHomeScreenState extends State<CustomerHomeScreen> {
         ),
       ),
       bottomNavigationBar: BottomNavigationBar(
+        type: BottomNavigationBarType.fixed,
         backgroundColor: Theme.of(context).primaryColor,
         items: const [
           BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
           BottomNavigationBarItem(
               icon: Icon(Icons.category), label: 'Services'),
           BottomNavigationBarItem(
-              icon: Icon(Icons.bookmark_border), label: 'Orders'),
+              icon: Icon(Icons.bookmark_border), label: 'Bookings'),
+          BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Profile'),
         ],
         unselectedItemColor: _selectedIconColor,
         selectedItemColor: _unselectedIconColor,
