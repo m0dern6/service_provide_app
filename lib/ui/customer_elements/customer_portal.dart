@@ -48,7 +48,7 @@ class _CustomerPortalState extends State<CustomerPortal> {
                       );
                     },
                     options: CarouselOptions(
-                        viewportFraction: 0.7,
+                        viewportFraction: 0.8,
                         autoPlay: true,
                         height: 200,
                         onPageChanged: (index, reason) {

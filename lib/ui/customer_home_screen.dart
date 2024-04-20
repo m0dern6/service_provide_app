@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:service_provide_app/ui/customer_elements/customer_portal.dart';
+import 'package:service_provide_app/ui/customer_elements/customer_profile.dart';
 import 'package:service_provide_app/ui/customer_elements/customer_settings.dart';
 import 'package:service_provide_app/ui/customer_elements/services.dart';
 
 class CustomerHomeScreen extends StatefulWidget {
-  const CustomerHomeScreen({super.key});
+  final String token;
+  const CustomerHomeScreen({required this.token, Key? key}) : super(key: key);
 
   @override
   State<CustomerHomeScreen> createState() => _CustomerHomeScreenState();
@@ -31,7 +33,7 @@ class _CustomerHomeScreenState extends State<CustomerHomeScreen> {
         _currentPage = const CustomerSettingScreen();
         break;
       case 3:
-        _currentPage = const CustomerSettingScreen();
+        _currentPage = CustomerProfile(token: widget.token);
     }
     return Scaffold(
       appBar: AppBar(
