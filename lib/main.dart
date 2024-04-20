@@ -3,7 +3,7 @@ import 'package:provider/provider.dart';
 import 'package:service_provide_app/login_signup/login_screen.dart';
 import 'package:service_provide_app/provider/api_provider.dart';
 import 'package:service_provide_app/ui/customer_home_screen.dart';
-import 'package:service_provide_app/ui/provider_home_screen.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 void main() {
   Future.delayed(const Duration(seconds: 2));
@@ -16,29 +16,39 @@ void main() {
 }
 
 class MyApp extends StatefulWidget {
-  const MyApp({super.key});
-
   @override
-  State<MyApp> createState() => _MyAppState();
+  _MyAppState createState() => _MyAppState();
 }
 
 class _MyAppState extends State<MyApp> {
+  String? _token;
+
+  @override
+  void initState() {
+    super.initState();
+    _getToken();
+  }
+
+  Future<void> _getToken() async {
+    final prefs = await SharedPreferences.getInstance();
+    final token = prefs.getString('token');
+    setState(() {
+      _token = token;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: ThemeData(
-        primarySwatch: Colors.teal,
         primaryColor: Colors.teal,
       ),
+      title: 'My App',
       debugShowCheckedModeBanner: false,
+      home: _token != null ? CustomerHomeScreen(token: _token!) : LoginScreen(),
       routes: {
-        '/': (context) => const LoginScreen(),
-        'login': (context) => const LoginScreen(),
-        'homeCustomer': (context) => const CustomerHomeScreen(),
-        'homeProvider': (context) => const ProviderHomeScreen(),
-
-        // '/services': (context) => const ServiceScreen(),
-        // '/orders': (context) => const OrderScreen(),
+        '/login': (context) => LoginScreen(),
+        '/dashboard': (context) => CustomerHomeScreen(token: _token!),
       },
     );
   }
