@@ -2,6 +2,7 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:provider/provider.dart';
 import 'package:service_provide_app/models/category_model.dart';
 import 'package:service_provide_app/provider/api_provider.dart';
@@ -91,13 +92,13 @@ class _CustomerPortalState extends State<CustomerPortal> {
             const SizedBox(height: 10),
             Consumer<ApiProvider>(builder: (context, apiProvider, child) {
               final categories = apiProvider.categories;
-              return GridView.builder(
+              return MasonryGridView.builder(
                   shrinkWrap: true,
                   physics: const NeverScrollableScrollPhysics(),
                   itemCount: categories.length,
-                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                  gridDelegate:
+                      const SliverSimpleGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: 2,
-                    crossAxisSpacing: 5,
                   ),
                   itemBuilder: (context, index) {
                     final categoryData = categories[index];
@@ -111,11 +112,14 @@ class _CustomerPortalState extends State<CustomerPortal> {
                                     )));
                       },
                       child: Column(
-                        mainAxisSize: MainAxisSize.min,
                         children: [
-                          ClipRRect(
-                              borderRadius: BorderRadius.circular(5),
-                              child: Image.network(categoryData.CategoryImage)),
+                          Container(
+                            padding: const EdgeInsets.all(2),
+                            child: ClipRRect(
+                                borderRadius: BorderRadius.circular(5),
+                                child:
+                                    Image.network(categoryData.CategoryImage)),
+                          ),
                           Text(
                             categoryData.CategoryName,
                             style: TextStyle(
