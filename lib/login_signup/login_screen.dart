@@ -1,98 +1,112 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
-import 'package:provider/provider.dart';
-import 'package:service_provide_app/provider/api_provider.dart';
+import 'dart:convert';
+import 'package:http/http.dart' as http;
+import 'package:shared_preferences/shared_preferences.dart';
 
 class LoginScreen extends StatefulWidget {
-  const LoginScreen({super.key});
-
   @override
-  State<LoginScreen> createState() => _LoginScreenState();
+  _LoginScreenState createState() => _LoginScreenState();
 }
 
 class _LoginScreenState extends State<LoginScreen> {
-  final phoneController = TextEditingController();
-  final passController = TextEditingController();
+  final _formKey = GlobalKey<FormState>();
+  final _emailController = TextEditingController();
+  final _passwordController = TextEditingController();
 
-  @override
-  void dispose() {
-    phoneController.dispose();
-    passController.dispose();
-    super.dispose();
+  bool _isLoading = false;
+
+  Future<void> _storeToken(String token) async {
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.setString('token', token);
+  }
+
+  Future<void> _login() async {
+    if (_formKey.currentState!.validate()) {
+      setState(() {
+        _isLoading = true;
+      });
+
+      try {
+        final response = await http.post(
+          Uri.parse('http://192.168.1.64:8000/user/login'),
+          body: jsonEncode({
+            'Email': _emailController.text,
+            'Password': _passwordController.text,
+          }),
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        );
+
+        if (response.statusCode == 200) {
+          final data = jsonDecode(response.body);
+
+          final token = data['token'];
+          await _storeToken(token);
+          print('Token: ${data['token']}');
+
+          Navigator.pushNamed(context, '/dashboard');
+        } else {
+          print('Error: ${response.body}');
+        }
+      } catch (e) {
+        print('Error: $e');
+      } finally {
+        setState(() {
+          _isLoading = false;
+        });
+      }
+    }
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Theme.of(context).primaryColor,
-        title: const Text('Login'),
+        title: Text('Login'),
       ),
-      body: Consumer<ApiProvider>(builder: (context, apiProvider, child) {
-        final usersData = apiProvider.users;
-        return Padding(
-          padding: EdgeInsets.fromLTRB(20, 0, 20, 0),
-          child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
-            Row(
-              children: [
-                Expanded(
-                  child: TextField(
-                    controller: phoneController,
-                    decoration: InputDecoration(
-                      labelText: 'Phone Number',
-                    ),
-                  ),
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Form(
+          key: _formKey,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              TextFormField(
+                controller: _emailController,
+                decoration: InputDecoration(
+                  labelText: 'Email',
                 ),
-              ],
-            ),
-            Row(
-              children: [
-                Expanded(
-                  child: TextField(
-                    controller: passController,
-                    obscureText: true,
-                    decoration: InputDecoration(
-                      labelText: 'Password',
-                    ),
-                  ),
-                ),
-              ],
-            ),
-            SizedBox(
-              height: 20,
-            ),
-            ElevatedButton(
-                style: ButtonStyle(
-                  backgroundColor: MaterialStateProperty.all<Color>(
-                      Theme.of(context).primaryColor),
-                ),
-                onPressed: () {
-                  final phone = phoneController.text;
-                  final password = passController.text;
-
-                  final users = usersData.firstWhere(
-                    (users) =>
-                        users.Phone == phone && users.Password == password,
-                  );
-
-                  if (users.Role == 'Customer') {
-                    Navigator.pushNamed(context, 'homeCustomer');
-                  } else if (users.Role == 'Provider') {
-                    Navigator.pushNamed(context, 'homeProvider');
-                  } else {
-                    print('User Name: ${users.Name}');
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return 'Please enter your email';
                   }
+                  return null;
                 },
-                child: Container(
-                  child: Text(
-                    'Login',
-                    style: TextStyle(color: Colors.white),
-                  ),
-                ))
-          ]),
-        );
-      }),
+              ),
+              SizedBox(height: 16.0),
+              TextFormField(
+                controller: _passwordController,
+                obscureText: true,
+                decoration: InputDecoration(
+                  labelText: 'Password',
+                ),
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return 'Please enter your password';
+                  }
+                  return null;
+                },
+              ),
+              SizedBox(height: 16.0),
+              ElevatedButton(
+                onPressed: _isLoading ? null : _login,
+                child: _isLoading ? CircularProgressIndicator() : Text('Login'),
+              ),
+            ],
+          ),
+        ),
+      ),
     );
   }
 }
