@@ -45,9 +45,15 @@ class _MyAppState extends State<MyApp> {
       ),
       title: 'My App',
       debugShowCheckedModeBanner: false,
-      home: _token != null ? CustomerHomeScreen(token: _token!) : LoginScreen(),
+      home: _token == null
+          ? LoginScreen(
+              onLoginSuccess: _getToken,
+            )
+          : CustomerHomeScreen(token: _token!),
       routes: {
-        '/login': (context) => LoginScreen(),
+        '/login': (context) => LoginScreen(
+              onLoginSuccess: _getToken,
+            ),
         '/dashboard': (context) => CustomerHomeScreen(token: _token!),
       },
     );
