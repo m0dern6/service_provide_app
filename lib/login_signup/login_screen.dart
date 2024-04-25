@@ -66,9 +66,6 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Login'),
-      ),
       body: Stack(
         fit: StackFit.expand,
         children: [
@@ -93,7 +90,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       'SERVICE PRO',
                       textAlign: TextAlign.center,
                       style: TextStyle(
-                        color: Colors.amber,
+                        color: Colors.white,
                         fontWeight: FontWeight.bold,
                         fontSize: 40,
                         letterSpacing: 2,
