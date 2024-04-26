@@ -15,9 +15,6 @@ class SignUpPage extends StatelessWidget {
     final double appBarHeight = AppBar().preferredSize.height;
 
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('SERVICE PRO'),
-      ),
       body: Container(
         height: screenHeight - appBarHeight,
         decoration: const BoxDecoration(

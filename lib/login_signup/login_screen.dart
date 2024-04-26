@@ -87,10 +87,13 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+<<<<<<< HEAD
       appBar: AppBar(
         automaticallyImplyLeading: false,
         title: const Text('Login'),
       ),
+=======
+>>>>>>> cb997e9899cd39e613ff0579b6c5561e0fe326ed
       body: Stack(
         fit: StackFit.expand,
         children: [
@@ -105,6 +108,7 @@ class _LoginScreenState extends State<LoginScreen> {
           SingleChildScrollView(
             child: Padding(
               padding: const EdgeInsets.all(16.0),
+<<<<<<< HEAD
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
@@ -153,6 +157,22 @@ class _LoginScreenState extends State<LoginScreen> {
                         icon: _isPasswordVisible
                             ? const Icon(Icons.visibility)
                             : const Icon(Icons.visibility_off),
+=======
+              child: Form(
+                key: _formKey,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: [
+                    const SizedBox(height: 80), // Spacer for top logo
+                    const Text(
+                      'SERVICE PRO',
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 40,
+                        letterSpacing: 2,
+>>>>>>> cb997e9899cd39e613ff0579b6c5561e0fe326ed
                       ),
                     ),
                     validator: (value) {
