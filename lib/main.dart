@@ -2,12 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:service_provide_app/login_signup/login_screen.dart';
 import 'package:service_provide_app/provider/api_provider.dart';
-import 'package:service_provide_app/ui/customer_home_screen.dart';
+
 import 'package:service_provide_app/ui/splash_screen.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 void main() {
-  Future.delayed(const Duration(seconds: 2));
   runApp(MultiProvider(
     providers: [
       ChangeNotifierProvider(create: (_) => ApiProvider()),
@@ -16,28 +14,7 @@ void main() {
   ));
 }
 
-class MyApp extends StatefulWidget {
-  @override
-  _MyAppState createState() => _MyAppState();
-}
-
-class _MyAppState extends State<MyApp> {
-  String? _token;
-
-  @override
-  void initState() {
-    super.initState();
-    _getToken();
-  }
-
-  Future<void> _getToken() async {
-    final prefs = await SharedPreferences.getInstance();
-    final token = prefs.getString('token');
-    setState(() {
-      _token = token;
-    });
-  }
-
+class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -46,22 +23,7 @@ class _MyAppState extends State<MyApp> {
       ),
       title: 'My App',
       debugShowCheckedModeBanner: false,
-<<<<<<< HEAD
-      home: _token == null
-          ? LoginScreen(
-              onLoginSuccess: _getToken,
-            )
-          : CustomerHomeScreen(token: _token!),
-=======
-      // home: SplashScreen(),
-      home: _token != null ? CustomerHomeScreen(token: _token!) : LoginScreen(),
->>>>>>> cb997e9899cd39e613ff0579b6c5561e0fe326ed
-      routes: {
-        '/login': (context) => LoginScreen(
-              onLoginSuccess: _getToken,
-            ),
-        '/dashboard': (context) => CustomerHomeScreen(token: _token!),
-      },
+      home: SplashScreen(),
     );
   }
 }

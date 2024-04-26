@@ -1,18 +1,30 @@
 import 'package:flutter/material.dart';
 import 'package:service_provide_app/login_signup/login_screen.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 // ignore: use_key_in_widget_constructors
 class SignUpPage extends StatelessWidget {
   final TextEditingController nameController = TextEditingController();
+
   final TextEditingController addressController = TextEditingController();
+
   final TextEditingController phoneNumberController = TextEditingController();
+
   final TextEditingController emailController = TextEditingController();
+
   final TextEditingController passwordController = TextEditingController();
+
+  String? token;
 
   @override
   Widget build(BuildContext context) {
     final double screenHeight = MediaQuery.of(context).size.height;
     final double appBarHeight = AppBar().preferredSize.height;
+
+    Future<String?> getToken() async {
+      final prefs = await SharedPreferences.getInstance();
+      token = prefs.getString('token');
+    }
 
     return Scaffold(
       body: Container(
@@ -106,7 +118,9 @@ class SignUpPage extends StatelessWidget {
                         Navigator.pushReplacement(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => LoginScreen(),
+                            builder: (context) => LoginScreen(
+                              onLoginSuccess: getToken,
+                            ),
                           ),
                         );
                       },

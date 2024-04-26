@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:service_provide_app/login_signup/login_screen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class CustomerProfile extends StatefulWidget {
@@ -10,10 +11,22 @@ class CustomerProfile extends StatefulWidget {
 }
 
 class _CustomerProfileState extends State<CustomerProfile> {
+  String? token;
+
   Future<void> _logout() async {
     final prefs = await SharedPreferences.getInstance();
     await prefs.remove('token');
-    Navigator.pushNamed(context, '/login');
+    Navigator.pushReplacement(
+      context,
+      MaterialPageRoute(
+        builder: (context) => LoginScreen(onLoginSuccess: getToken),
+      ),
+    );
+  }
+
+  Future<void> getToken() async {
+    final prefs = await SharedPreferences.getInstance();
+    token = prefs.getString('token');
   }
 
   @override

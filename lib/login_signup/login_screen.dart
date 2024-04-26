@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:service_provide_app/login_signup/signip_screen.dart';
+import 'package:service_provide_app/ui/customer_home_screen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 // ignore: use_key_in_widget_constructors
@@ -31,7 +32,7 @@ class _LoginScreenState extends State<LoginScreen> {
 
     try {
       final response = await http.post(
-        Uri.parse('http://192.168.1.64:8000/user/login'),
+        Uri.parse('http://10.0.2.2:8000/user/login'),
         body: jsonEncode({
           'Email': _emailController.text,
           'Password': _passwordController.text,
@@ -70,7 +71,12 @@ class _LoginScreenState extends State<LoginScreen> {
           );
         } else {
           widget.onLoginSuccess();
-          Navigator.pushReplacementNamed(context, '/dashboard');
+          Navigator.pushReplacement(
+            context,
+            MaterialPageRoute(
+              builder: (context) => CustomerHomeScreen(token: token),
+            ),
+          );
         }
       } else {
         print('Error: ${response.body}');
@@ -87,13 +93,10 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-<<<<<<< HEAD
       appBar: AppBar(
         automaticallyImplyLeading: false,
         title: const Text('Login'),
       ),
-=======
->>>>>>> cb997e9899cd39e613ff0579b6c5561e0fe326ed
       body: Stack(
         fit: StackFit.expand,
         children: [
@@ -108,7 +111,6 @@ class _LoginScreenState extends State<LoginScreen> {
           SingleChildScrollView(
             child: Padding(
               padding: const EdgeInsets.all(16.0),
-<<<<<<< HEAD
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
@@ -133,12 +135,6 @@ class _LoginScreenState extends State<LoginScreen> {
                       fillColor: Colors.white,
                       suffixIcon: Icon(Icons.email),
                     ),
-                    validator: (value) {
-                      if (value == null || value.isEmpty) {
-                        return 'Please enter your email';
-                      }
-                      return null;
-                    },
                   ),
                   const SizedBox(height: 20),
                   TextFormField(
@@ -157,30 +153,8 @@ class _LoginScreenState extends State<LoginScreen> {
                         icon: _isPasswordVisible
                             ? const Icon(Icons.visibility)
                             : const Icon(Icons.visibility_off),
-=======
-              child: Form(
-                key: _formKey,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.stretch,
-                  children: [
-                    const SizedBox(height: 80), // Spacer for top logo
-                    const Text(
-                      'SERVICE PRO',
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontWeight: FontWeight.bold,
-                        fontSize: 40,
-                        letterSpacing: 2,
->>>>>>> cb997e9899cd39e613ff0579b6c5561e0fe326ed
                       ),
                     ),
-                    validator: (value) {
-                      if (value == null || value.isEmpty) {
-                        return 'Please enter your password';
-                      }
-                      return null;
-                    },
                   ),
                   const SizedBox(height: 20),
                   ElevatedButton(
