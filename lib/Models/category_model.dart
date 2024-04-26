@@ -1,22 +1,25 @@
 import 'package:service_provide_app/models/service_model.dart';
 
 class CategoryModel {
-  int cid;
-  String CategoryName;
-  String CategoryImage;
+  String id;
+  String Name;
+  String Description;
+  String Image;
   List<ServiceModel> Services;
 
   CategoryModel(
-      {required this.cid,
-      required this.CategoryName,
+      {required this.id,
+      required this.Description,
+      required this.Name,
       required this.Services,
-      required this.CategoryImage});
+      required this.Image});
 
   factory CategoryModel.fromJson(Map<String, dynamic> json) {
     return CategoryModel(
-      cid: json['cid'],
-      CategoryName: json['Category Name'],
-      CategoryImage: json['Category Image'],
+      id: json['_id'],
+      Name: json['Name'],
+      Description: json['Description'],
+      Image: json['Image'],
       Services: List<ServiceModel>.from(
         json['Services'].map((Services) => ServiceModel.fromJson(Services)),
       ),
