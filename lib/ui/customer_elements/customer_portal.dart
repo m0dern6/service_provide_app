@@ -1,3 +1,4 @@
+import 'dart:ui';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
@@ -39,13 +40,11 @@ class _CustomerPortalState extends State<CustomerPortal> {
                     itemCount: sliderImg.length,
                     itemBuilder: (context, index, realindex) {
                       final sliderimages = sliderImg[index];
-                      return Expanded(
-                        child: Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 5),
-                          child: ClipRRect(
-                              borderRadius: BorderRadius.circular(10),
-                              child: Image.network(sliderimages)),
-                        ),
+                      return Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 5),
+                        child: ClipRRect(
+                            borderRadius: BorderRadius.circular(10),
+                            child: Image.network(sliderimages)),
                       );
                     },
                     options: CarouselOptions(
@@ -102,6 +101,8 @@ class _CustomerPortalState extends State<CustomerPortal> {
                   ),
                   itemBuilder: (context, index) {
                     final categoryData = categories[index];
+                    String image = categoryData.Image;
+                    image = image.replaceFirst('localhost', '10.0.2.2');
                     return GestureDetector(
                       onTap: () {
                         Navigator.push(
@@ -117,11 +118,10 @@ class _CustomerPortalState extends State<CustomerPortal> {
                             padding: const EdgeInsets.all(2),
                             child: ClipRRect(
                                 borderRadius: BorderRadius.circular(5),
-                                child:
-                                    Image.network(categoryData.CategoryImage)),
+                                child: Image.network(image)),
                           ),
                           Text(
-                            categoryData.CategoryName,
+                            categoryData.Name,
                             style: TextStyle(
                                 color: widget.textColor,
                                 fontWeight: FontWeight.bold,
@@ -152,14 +152,14 @@ class _CategoryServiceState extends State<CategoryService> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.categoryData.CategoryName),
+        title: Text(widget.categoryData.Name),
       ),
       body: ListView.builder(
           itemCount: widget.categoryData.Services.length,
           itemBuilder: (context, index) {
             final serviceData = widget.categoryData.Services[index];
             return ListTile(
-              title: Text(serviceData.ServiceName),
+              title: Text(serviceData.Name),
               trailing: Text('Rs ${serviceData.Price}'),
             );
           }),

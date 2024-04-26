@@ -25,7 +25,7 @@ class _ServicesState extends State<Services> {
 
             return ListTile(
               title: Text(
-                serviceData.ServiceName,
+                serviceData.Name,
                 style: TextStyle(color: widget.textColor),
               ),
             );
