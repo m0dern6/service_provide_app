@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:service_provide_app/design/Profile.dart';
-import 'package:service_provide_app/login_signup/login_screen.dart';
+
+import 'package:service_provide_app/design/create_review.dart';
+
 import 'package:service_provide_app/provider/api_provider.dart';
-import 'package:service_provide_app/ui/customer_home_screen.dart';
-import 'package:service_provide_app/ui/splash_screen.dart';
+
 import 'package:shared_preferences/shared_preferences.dart';
 
 void main() {
@@ -47,7 +47,7 @@ class _MyAppState extends State<MyApp> {
       ),
       title: 'My App',
       debugShowCheckedModeBanner: false,
-      home: ProfilePage(),
+      home: CreateReview(),
       // home: _token != null ? CustomerHomeScreen(token: _token!) : LoginScreen(),
       // routes: {
       //   '/login': (context) => LoginScreen(),
