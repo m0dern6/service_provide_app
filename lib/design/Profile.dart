@@ -10,9 +10,7 @@ class ProfilePage extends StatelessWidget {
         actions: [
           IconButton(
             icon: Icon(Icons.person),
-            onPressed: () {
-              // TODO: Implement change profile functionality
-            },
+            onPressed: () {},
           ),
         ],
       ),
@@ -38,7 +36,7 @@ class ProfilePage extends StatelessWidget {
                   ),
                   SizedBox(height: 10),
                   Text(
-                    'John Doe',
+                    'Sajit Grg',
                     style: TextStyle(
                       fontSize: 24,
                       fontWeight: FontWeight.bold,
@@ -46,7 +44,7 @@ class ProfilePage extends StatelessWidget {
                     ),
                   ),
                   Text(
-                    'john.doe@example.com',
+                    'sajit.@example.com',
                     style: TextStyle(
                       fontSize: 16,
                       color: Colors.black,
@@ -61,10 +59,46 @@ class ProfilePage extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   ListTile(
+                    leading: Icon(Icons.location_city),
+                    title: TextButton(
+                      onPressed: () {},
+                      child: Row(
+                        children: [
+                          Text(
+                            'City: ',
+                            style: TextStyle(fontSize: 20, color: Colors.black),
+                          ),
+                          Text(
+                            'Pokhara', // Default city option
+                            style: TextStyle(fontSize: 20, color: Colors.black),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                  ListTile(
+                    leading: Icon(Icons.language),
+                    title: TextButton(
+                      onPressed: () {},
+                      child: Row(
+                        children: [
+                          Text(
+                            'Language: ',
+                            style: TextStyle(fontSize: 20, color: Colors.black),
+                          ),
+                          Text(
+                            'English',
+                            style: TextStyle(fontSize: 20, color: Colors.black),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                  SizedBox(height: 20),
+                  ListTile(
                     leading: Icon(Icons.key),
                     title: TextButton(
                       onPressed: () {
-                        // TODO: Implement change password functionality
                         showDialog(
                           context: context,
                           builder: (BuildContext context) {
@@ -93,14 +127,12 @@ class ProfilePage extends StatelessWidget {
                               actions: [
                                 TextButton(
                                   onPressed: () {
-                                    // TODO: Save password changes
                                     Navigator.pop(context);
                                   },
                                   child: Text('Save'),
                                 ),
                                 TextButton(
                                   onPressed: () {
-                                    // TODO: Discard password changes
                                     Navigator.pop(context);
                                   },
                                   child: Text('Discard'),
@@ -120,7 +152,6 @@ class ProfilePage extends StatelessWidget {
                     leading: Icon(Icons.logout),
                     title: TextButton(
                       onPressed: () {
-                        // Show confirmation dialog for logout
                         showDialog(
                           context: context,
                           builder: (BuildContext context) {
