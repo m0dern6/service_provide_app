@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import 'package:service_provide_app/design/create_review.dart';
+import 'package:service_provide_app/design/ratingandreview.dart';
 
 import 'package:service_provide_app/provider/api_provider.dart';
 
@@ -47,7 +48,7 @@ class _MyAppState extends State<MyApp> {
       ),
       title: 'My App',
       debugShowCheckedModeBanner: false,
-      home: CreateReview(),
+      home: RatingAndReviewsScreen(),
       // home: _token != null ? CustomerHomeScreen(token: _token!) : LoginScreen(),
       // routes: {
       //   '/login': (context) => LoginScreen(),
